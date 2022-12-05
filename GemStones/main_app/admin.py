@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from.models import 
+from.models import Product
 
 # Register your models here.
 
-admin.site.register(gemstones)
-admin.site.register()
-admin.site.register()
+admin.site.register(Product)
+# admin.site.register()
+# admin.site.register()
