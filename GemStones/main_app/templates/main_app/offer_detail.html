@@ -7,8 +7,8 @@
   <div class="col s6 col-offset-3">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ offer.name }}</span>
-        <p>Color: {{ offer.color }}</p>
+        <span class="card-title">{{ offer.buyer }}</span>
+        <p>Offer: {{ offer.price_offered }}</p>
       </div>
       <div class="card-action">
         <a href="{% url 'offers_update' offer.id %}">Edit</a>
