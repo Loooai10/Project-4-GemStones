@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <h1>Gemstones List</h1>
 
@@ -8,6 +9,7 @@
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ product.name }}</span>
+            {% comment %} <img src="{% static 'media/white_gold.jpg' %}"/> {% endcomment %}
             <p>Price: {{ product.price }}</p>
             <p>Description: {{ product.description }}</p>
             {% if product.price > 0 %}
@@ -15,6 +17,7 @@
             {% else %}
                 <p>Price: high</p>
             {% endif %}
+            <img src="{{ product.uploadimage_set.first.image.url }}" />
         </div>
     </div>
   </a>

@@ -13,10 +13,13 @@ class Buyer(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
-     
+
+
+
 class Offer(models.Model):
-   #  product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
+       #  product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
     buyer = models.ForeignKey(Buyer,null=True, on_delete=models.SET_NULL)
+   #  product = models.ForeignKey(Product,null=True, on_delete=models.SET_NULL)
     date_offered = models.DateTimeField(auto_now_add=True)
     price_offered = models.DecimalField(max_digits=6, decimal_places=2)
     status = models.CharField(max_length=20,default= 'PENDING')
@@ -24,12 +27,7 @@ class Offer(models.Model):
    #      return self.buyer
      
     def get_absolute_url(self):
-      return reverse('offers_detail', kwargs={'pk': self.id})
-   
-   # change the default sort
-   #  class Meta:
-   #     ordering = ['-date_offered']
-   
+          return reverse('offers_detail', kwargs={'pk': self.id})
 class Product(models.Model):
    name = models.CharField(max_length=150)
    price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -41,6 +39,11 @@ class Product(models.Model):
    
    def get_absolute_url(self):
       return reverse('detail', kwargs={'product_id': self.id}) 
+   
+   # change the default sort
+   #  class Meta:
+   #     ordering = ['-date_offered']
+   
    
 class UploadImage(models.Model):  
     caption = models.CharField(max_length=200)  

@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import UserImage 
+from .forms import *
 from .models import UploadImage 
 import uuid
 import boto3
@@ -86,11 +86,12 @@ class OfferDetail(LoginRequiredMixin, DetailView):
 
 class OfferCreate(LoginRequiredMixin, CreateView):
   model = Offer
+#   form_class = ['UserImage', 'createproductform']
   fields = '__all__'
 
 class OfferUpdate(LoginRequiredMixin, UpdateView):
   model = Offer
-  fields = ['buyer', 'status', 'price']
+  fields = ['buyer', 'status', 'price_offered']
 
 class OfferDelete(LoginRequiredMixin, DeleteView):
   model = Offer
