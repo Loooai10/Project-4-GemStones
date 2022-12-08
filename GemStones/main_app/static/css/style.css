@@ -13,6 +13,12 @@ body {
     text-align: right;
   }
 
-  select {
+select {
     display: block !important;
   }
+span.helptext {
+    display: none;
+}
+p.red-text {
+  display: none;
+}
